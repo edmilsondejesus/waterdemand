@@ -1,0 +1,4 @@
+SK_PONTO;Best Params;MSE;RMSE;MAE;MAPE;Duration
+5;{'activation': 'identity', 'alpha': 0.0001, 'hidden_layer_sizes': (2, 6, 1), 'max_iter': 200, 'solver': 'adam'};5929.058020502218;77.00037675558619;48.58768183965401;6.90323067500058;375.3172609806061
+6;{'activation': 'relu', 'alpha': 0.0001, 'hidden_layer_sizes': (4, 6, 1), 'max_iter': 100, 'solver': 'adam'};68684.89236394117;262.078027243684;250.7109329700351;92.38962524388596;254.2529513835907
+7;{'activation': 'identity', 'alpha': 0.0001, 'hidden_layer_sizes': (4, 6, 1), 'max_iter': 150, 'solver': 'adam'};1929.5134627360912;43.9262275040333;24.31149361511953;5.4027631013838295;457.8954265117645

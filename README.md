@@ -1,45 +1,46 @@
-# Algoritmo de Aprendizagem de Máquina para previsão da Demanda de Água
+# Machine Learning Algorithm for Water Demand forecasting
 
-## Problema
+## Problem
 
-- As condições climáticas e outros fatores, como descrito por Yassuda et al. (1976 apud SILVA et al., 2008), tendem a influenciar a demanda de água, levando o sistema ao desequilíbrio à medida em que acelera a vazão de saída dos reservatórios.
+- Climatic conditions and other factors, as described by Yassuda et al. (1976 apud SILVA et al., 2008), tends to influence the demand for water, leading the system to imbalance as it accelerates the outflow of the reservoirs.
 
-- Segundo Santos (2014), erros na previsão da demanda aumentam os custos de operação dos sistemas e aumentam os riscos no abastecimento de água.
+- According to Santos (2014), errors in demand forecasting increase system operating costs and increase risks in water supply.
 
-- A imprecisão na previsão adequada da demanda de água ocasiona diversos problemas, como falta d'água, custos desnecessários de bombeamento, aumento de vazamentos e perdas em locais da rede.
+- The inaccuracy in properly forecasting the demand for water causes several problems, such as lack of water, necessary pumping costs, increased leaks and losses in network locations.
 
----  
+🇧🇷
 
-## Motivação
-- Investimentos em infraestrutura de abastecimento de água é caro e leva tempo para implementação e para retorno do investimento (REES, 2020); 
-- Aquecimento global e o crescimento da população mundial (DINIZ, 2019) são fortes motivadores para assertividade na previsão da demanda de água;
+## Motivation
+- Investments in water supply infrastructure are expensive and take time to implement and return on investment (REES, 2020);
+- Global warming and world population growth (DINIZ, 2019) are strong motivators for assertiveness in forecasting water demand;
 
 
-## Objetivo
+## Objective
 
-** Propor um modelo de aprendizagem de máquina para previsão de demanda de água da RMS, considerando variáveis climáticas, sazonalidade e o histórico de consumo:
+** Propose a machine learning model for forecasting RMS water demand, considering climate variables and consumption history:
 
-- Implementar e avaliar a precisão de modelos para previsão da demanda de água; 
+- Implement and evaluate the accuracy of models for forecasting water demand;
 
-- Estabelecer um modelo que forneça a melhor precisão na previsão da demanda
+- Establish a model that gives the best accuracy in forecasting demand
 
 
 ## Instructions for installation
-1. Download code from GitHub: [https://github.com/edmilsondejesus/previsao-agua-am](https://github.com/edmilsondejesus/previsao-agua-am)
-2. Create a virtual environment. Example name: .venv 
-```
-  python -m venv .venv
-```
-3. Activate this environment: Examples commands below and between ' '
-```
-  Example in Linux: 'source .venv/bin/activate'
-  Example in Windows: '.venv/Scripts/Activate'
-```
-4. Install libraries in it from requirements.txt:
-```
-    pip install -r requirements.txt
-``` 
- 
+1. Download the code from GitHub: [https://github.com/edmilsondejesus/waterdemand](https://github.com/edmilsondejesus/waterdemand)
+2. Create a virtual environment. Name example: .venv
+🇧🇷
+    python -m venv .venv
+🇧🇷
+3. Activate this environment: Examples of commands below and between ' '
+🇧🇷
+    Example on Linux: 'source .venv/bin/activate'
+    Example on Windows: '.venv/Scripts/Activate'
+🇧🇷
+4. Install the libraries on it from requirements.txt:
+🇧🇷
+      pip install -r requirements.txt
+🇧🇷
+
+5. Othes scripts *.R will can be run on R language softwares (RStudio, for example).
 ---
 ## Referências
 
