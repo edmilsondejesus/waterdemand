@@ -19,7 +19,7 @@ arquivo <- 'DS_Agua_2017_2022_por_ponto.csv'
 ds_water <- read.csv(paste(caminho,arquivo, sep=""), header = TRUE, sep = ";", encoding = 'latin1')
 
 caminho_result = paste("C:/Users/Edmilson/Downloads/mestrado/waterdemand/results/", sep="")
-arquivo_result = 'Result_ARIMA1_Model_Hour.csv'
+arquivo_result = 'Result_ARIMA2_Model_Hour.csv'
 
 salvar_resultado <- function (sk_ponto, ds_best_param, n_time_steps, MSE, RMSE, MAE, MAPE, Duration){
   #Script to write training cycle results
@@ -79,13 +79,15 @@ previsao_ARIMA1 <- function (sk_ponto, ds_ponto, n_time_steps){
   #acf2(as.numeric(ds_matrix[,1]))
 
   d_resultado <-ds_matrix[,1]
-  #lambda<- BoxCox.lambda(ds_matrix[,1])
+  
+  # BoxCox transformation for hourly prediction 
+  lambda<- BoxCox.lambda(ds_matrix[,1])
 
   # Stores the training execution start time
   Inicio <- Sys.time()
 
   #Search the best ARIMA model without lambda
-  modelo=auto.arima(ds_matrix[,1],xreg=ds_matrix[,2:ncol(ds_matrix)], trace = TRUE,approximation = FALSE, max.p = 5, max.q = 5 )
+  modelo=auto.arima(ds_matrix[,1],xreg=ds_matrix[,2:ncol(ds_matrix)], trace = TRUE,approximation = FALSE, max.p = 5, max.q = 5 , lambda = lambda)
 
   #identify index number for separate data of treain 75% and test 25%
   idx_teste <- round(length(d_resultado)* 0.75)

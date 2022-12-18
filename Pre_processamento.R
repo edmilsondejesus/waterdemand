@@ -553,6 +553,7 @@ ds_data$UMIDADE_RELATIVA_DO_AR=as.numeric(ds_data$UMIDADE_RELATIVA_DO_AR)
 ds_data$VELOCIDADE_VENTO=as.numeric(ds_data$VELOCIDADE_VENTO)
 ds_data$VL_MEDICAO=as.numeric(ds_data$VL_MEDICAO)
 
+ds_data
 #salva dados tratado em arquivo
 f_out <- 'C:/Users/Edmilson/Downloads/mestrado/waterdemand/data/DS_Agua_2017_2022_por_ponto.csv'
 write.csv2(ds_data,f_out, sep = ';')

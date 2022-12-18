@@ -10,16 +10,30 @@ library(plyr)
 library(lubridate)
 #install.packages("TSA")
 library(TSA)
+library(dplyr)
+library(stringr)
 
 
 caminho = paste("C:/Users/Edmilson/Downloads/mestrado/waterdemand/", sep="")
 source(paste(caminho,"basic.r",sep = ""))
 caminho = paste("C:/Users/Edmilson/Downloads/mestrado/waterdemand/data/", sep="")
 arquivo <- 'DS_Agua_2017_2022_por_ponto.csv'
+rm(ds_water)
 ds_water <- read.csv(paste(caminho,arquivo, sep=""), header = TRUE, sep = ";", encoding = 'latin1')
 
+#Grouping data for Day
+ds_water[c('DATA')]<-str_split_fixed(ds_water$DT_MEDICAO_HORA,' ',1)
+
+#colnames(ds_matrix) <- c("DT_MEDICAO_HORA","VL_MEDICAO","PRECIPITACAO","PRESSAO","TEMPERATURA","UMIDADE","VELOCIDADE_VENTO","VL_RESULTADO")
+ds_water <- ds_water %>% group_by(SK_PONTO, DATA) %>%
+  summarize(PRECIPITACAO=sum(PRECIPITACAO), PRESSAO_ATMOSFERICA=mean(PRESSAO_ATMOSFERICA), 
+            TEMPERATURA_DO_AR_C=mean(TEMPERATURA_DO_AR_C), UMIDADE_RELATIVA_DO_AR=mean(UMIDADE_RELATIVA_DO_AR), 
+            VELOCIDADE_VENTO=mean(VELOCIDADE_VENTO),VL_MEDICAO=sum(VL_MEDICAO), .groups='drop') %>%
+  arrange(SK_PONTO)
+head(df_lista)
+
 caminho_result = paste("C:/Users/Edmilson/Downloads/mestrado/waterdemand/results/", sep="")
-arquivo_result = 'Result_ARIMA1_Model_Hour.csv'
+arquivo_result = 'Result_ARIMA2_Model_Day.csv'
 
 salvar_resultado <- function (sk_ponto, ds_best_param, n_time_steps, MSE, RMSE, MAE, MAPE, Duration){
   #Script to write training cycle results
@@ -42,9 +56,9 @@ criar_arquivo_resultado ()
 
 previsao_ARIMA1 <- function (sk_ponto, ds_ponto, n_time_steps){
   
-  ds_ponto$DT_MEDICAO_HORA<- as_datetime(ds_ponto$DT_MEDICAO_HORA)
+  ds_ponto$DATA<- as_datetime(ds_ponto$DATA)
 
-  ds_st<-cbind(ds_ponto$DT_MEDICAO_HORA,ds_ponto$VL_MEDICAO,ds_ponto$PRECIPITACAO, ds_ponto$PRESSAO_ATMOSFERICA, ds_ponto$TEMPERATURA_DO_AR_C,
+  ds_st<-cbind(ds_ponto$DATA,ds_ponto$VL_MEDICAO,ds_ponto$PRECIPITACAO, ds_ponto$PRESSAO_ATMOSFERICA, ds_ponto$TEMPERATURA_DO_AR_C,
              ds_ponto$UMIDADE_RELATIVA_DO_AR, ds_ponto$VELOCIDADE_VENTO)
 
   # time serire transform - shift of n_time_steps lag time
@@ -58,7 +72,7 @@ previsao_ARIMA1 <- function (sk_ponto, ds_ponto, n_time_steps){
   #Concatenates the matrix with the result vector and eliminates the last line
   ds_matrix <- na.omit(ds_stlag)
 
-  #colnames(ds_matrix) <- c("DT_MEDICAO_HORA","VL_MEDICAO","PRECIPITACAO","PRESSAO","TEMPERATURA","UMIDADE","VELOCIDADE_VENTO","VL_RESULTADO")
+  #colnames(ds_matrix) <- c("DATA","VL_MEDICAO","PRECIPITACAO","PRESSAO","TEMPERATURA","UMIDADE","VELOCIDADE_VENTO","VL_RESULTADO")
   new_index <- as_datetime(ds_matrix[,1])
   ds_matrix <- ds_matrix[,2:ncol(ds_matrix)]
 
@@ -79,25 +93,26 @@ previsao_ARIMA1 <- function (sk_ponto, ds_ponto, n_time_steps){
   #acf2(as.numeric(ds_matrix[,1]))
 
   d_resultado <-ds_matrix[,1]
-  #lambda<- BoxCox.lambda(ds_matrix[,1])
-
+  
+  # BoxCox transformation for daily prediction 
+  lambda<- BoxCox.lambda(ds_matrix[,1])
   # Stores the training execution start time
   Inicio <- Sys.time()
 
   #Search the best ARIMA model without lambda
-  modelo=auto.arima(ds_matrix[,1],xreg=ds_matrix[,2:ncol(ds_matrix)], trace = TRUE,approximation = FALSE, max.p = 5, max.q = 5 )
+  modelo=auto.arima(ds_matrix[,1],xreg=ds_matrix[,2:ncol(ds_matrix)], trace = TRUE,approximation = FALSE, max.p = 5, max.q = 5, lambda = lambda )
 
   #identify index number for separate data of treain 75% and test 25%
   idx_teste <- round(length(d_resultado)* 0.75)
   idx_validacao <-length(d_resultado)
 
   # Adjustment of the result series for training x test
-  y_treino <- ts(d_resultado[1:idx_teste], frequency = 24 * 365)
-  y_teste  <- ts(d_resultado[(idx_teste +1):idx_validacao], frequency = 24 * 365)
+  y_treino <- ts(d_resultado[1:idx_teste], frequency = 365)
+  y_teste  <- ts(d_resultado[(idx_teste +1):idx_validacao], frequency = 365)
 
   #adjustment of series of independent variables for training x testing
-  X_treino <- ts(ds_matrix[1:idx_teste,2:ncol(ds_matrix)], frequency = 24 * 365)
-  X_teste <- ts(ds_matrix[(idx_teste +1):idx_validacao, 2:ncol(ds_matrix)], frequency = 24 * 365)
+  X_treino <- ts(ds_matrix[1:idx_teste,2:ncol(ds_matrix)], frequency = 365)
+  X_teste <- ts(ds_matrix[(idx_teste +1):idx_validacao, 2:ncol(ds_matrix)], frequency = 365)
 
   #make prediction
   predicao <- forecast(modelo, h=length(y_teste), xreg = X_teste)
@@ -154,3 +169,4 @@ for (x in 1:length(lista_pontos[,1])){
     previsao_ARIMA1(sk_ponto, ds_ponto, n_time_Steps)
   }
 }
+

@@ -25,3 +25,4 @@ SK_PONTO;Best Params;N_Past_Vl;MSE;RMSE;MAE;MAPE;Duration
 11;{'activation': 'identity', 'alpha': 0.01, 'hidden_layer_sizes': (2, 6, 1), 'max_iter': 500, 'solver': 'adam'};6;430.92358544632594;20.758699030679306;8.005989971929296;1.5396816960650963;299.3836109638214
 12;{'activation': 'relu', 'alpha': 0.01, 'hidden_layer_sizes': (6, 18, 1), 'max_iter': 500, 'solver': 'adam'};1;1266.6563151288633;35.59011541325573;19.72372728545301;8.149192563620849;167.27246260643005
 12;{'activation': 'relu', 'alpha': 0.0001, 'hidden_layer_sizes': (2, 6, 1), 'max_iter': 500, 'solver': 'adam'};2;1253.0727395582073;35.39876748642821;19.37606415478467;8.073459680204971;914.766387462616
+12;{'activation': 'identity', 'alpha': 0.0001, 'hidden_layer_sizes': (6, 18, 1), 'max_iter': 500, 'solver': 'adam'};3;1257.55351817803;35.462001045880506;19.369580072918268;8.074324726790834;160.21908378601074

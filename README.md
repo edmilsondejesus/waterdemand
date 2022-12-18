@@ -42,6 +42,25 @@
 
 5. Othes scripts *.R will can be run on R language softwares (RStudio, for example).
 ---
+
+## Files
+Pre_processamento.R - File for processing telemetry data, consumption and meteorological data. With replacement of missing data and treatment of invalid data.
+MLP_Model_Hour.ipynb - Training and prediction using the MLP model for hourly prediction of the 11 reservoirs, considering delay lag from 1 to 6 measurement values.
+MLP_Model_Day.ipynb - Training and prediction using the MLP model for daily prediction of the 11 reservoirs, considering delay lag from 1 to 6 measurement values.
+MLP_Model_Week.ipynb - Training and prediction using the MLP model for weekly prediction of the 11 reservoirs, considering delay lag from 1 to 6 measurement values.
+SVR_Model_Hour.ipynb - Training and prediction using the SVR model for hourly prediction of the 11 reservoirs, considering delay lag from 1 to 6 measurement values.
+SVR_Model_Day.ipynb - Training and prediction using the SVR model for daily prediction of the 11 reservoirs, considering delay lag from 1 to 6 measurement values.
+SVR_Model_Week.ipynb - Training and prediction using the SVR model for weekly prediction of the 11 reservoirs, considering delay lag from 1 to 6 measurement values.
+ARIMA1_Model_Hour.R - Training and prediction using the untransformed ARIMA model for hourly prediction of the 11 reservoirs, considering delay lag from 1 to 6 measurement values.
+ARIMA1_Model_Day.R - Training and prediction using the untransformed ARIMA model for daily prediction of the 11 reservoirs, considering delay lag from 1 to 6 measurement values.
+ARIMA1_Model_Week.R - Training and prediction using the untransformed ARIMA model for weekly prediction of the 11 reservoirs, considering delay lag from 1 to 6 measurement values.
+ARIMA2_Model_Hour.R - Training and prediction using the ARIMA model with BoxCox transformation for hourly prediction of the 11 reservoirs, considering delay lag from 1 to 6 measurement values.
+ARIMA2_Model_Day.R - Training and prediction using the ARIMA model with BoxCox transformation for daily prediction of the 11 reservoirs, considering delay lag from 1 to 6 measurement values.
+ARIMA2_Model_Week.R - Training and prediction using the ARIMA model with BoxCox transformation for weekly prediction of the 11 reservoirs, considering delay lag from 1 to 6 measurement values.
+SVR-MLP_Model_Hour.ipynb - Training and prediction using the SVR-MLP hybrid model for hourly prediction of the 11 reservoirs, considering delay lag from 1 to 6 measurement values.
+SVR-MLP_Model_Hour.ipynb - Training and prediction using the SVR-MLP hybrid model for daily prediction of the 11 reservoirs, considering delay lag from 1 to 6 measurement values.
+SVR-MLP_Model_Hour.ipynb - Training and prediction using the SVR-MLP hybrid model for weekly prediction of the 11 reservoirs, considering delay lag from 1 to 6 measurement values.
+
 ## Referências
 
 - ADAMOWSKI, J.; KARAPATAKI, C. Comparison of multivariative regression and artificial neural networks for peak urban water-demand forecasting: evaluation of diferente ann learning algorithms. J. Hydrol. Eng., v. 15, p. 729–743, 2010.
