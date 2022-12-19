@@ -27,7 +27,7 @@ ds_water$DATA<-as_date(ds_water$DATA)
 
 ds_water$WEEK <- as.numeric(strftime(ds_water$DATA, format = "%V"))*10000 + as.numeric(strftime(ds_water$DATA, format = "%Y"))
 
-#head(ds_water)
+head(ds_water)
 
 #colnames(ds_matrix) <- c("DT_MEDICAO_HORA","VL_MEDICAO","PRECIPITACAO","PRESSAO","TEMPERATURA","UMIDADE","VELOCIDADE_VENTO","VL_RESULTADO")
 ds_water <- ds_water %>% group_by(SK_PONTO, WEEK) %>%
@@ -166,10 +166,11 @@ tamanho=count(lista_pontos)
 # make prediction for each sk_ponto
 for (x in 1:tamanho$n){
   sk_ponto=lista_pontos[x,1]
-  ds_ponto <- ds_water[ds_water$SK_PONTO==sk_ponto,]
+  ds_ponto <- ds_water[ds_water$SK_PONTO==sk_ponto$SK_PONTO,]
   for (n_time_Steps in 1:6){
-    print(paste('prediction sk_ponto=',sk_ponto,' lag times = ',n_time_Steps, sep=''))
-    previsao_ARIMA1(sk_ponto, ds_ponto, n_time_Steps)
+    print(paste('prediction sk_ponto=',sk_ponto$SK_PONTO,' lag times = ',n_time_Steps, sep=''))
+    print(paste('ds_ponto = ',count(ds_ponto),' lines', sep=''))
+    previsao_ARIMA1(sk_ponto$SK_PONTO, ds_ponto, n_time_Steps)
   }
 }
 

@@ -60,6 +60,9 @@ ARIMA2_Model_Week.R - Training and prediction using the ARIMA model with BoxCox 
 SVR-MLP_Model_Hour.ipynb - Training and prediction using the SVR-MLP hybrid model for hourly prediction of the 11 reservoirs, considering delay lag from 1 to 6 measurement values.
 SVR-MLP_Model_Hour.ipynb - Training and prediction using the SVR-MLP hybrid model for daily prediction of the 11 reservoirs, considering delay lag from 1 to 6 measurement values.
 SVR-MLP_Model_Hour.ipynb - Training and prediction using the SVR-MLP hybrid model for weekly prediction of the 11 reservoirs, considering delay lag from 1 to 6 measurement values.
+SVR_Model_general.ipynb - Training and prediction using the SVR model for hourly prediction of the general sum of reservoirs, considering delay lag from 1 measurement 
+MLP_Model_general.ipynb - Training and prediction using the MLP  model for hourly prediction of the general sum of reservoirs, considering delay lag from 1 measurement 
+MLP_Model_general_scaler.ipynb - Training and prediction using the MLP model for hourly prediction of the general sum of reservoirs, considering standard scaler normalization and delay lag from 1 measurement.
 
 ## Referências
 

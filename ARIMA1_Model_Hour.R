@@ -151,6 +151,7 @@ for (x in 1:length(lista_pontos[,1])){
   ds_ponto <- ds_water[ds_water$SK_PONTO==sk_ponto,]
   for (n_time_Steps in 1:6){
     print(paste('prediction sk_ponto=',sk_ponto,' lag times = ',n_time_Steps, sep=''))
+    print(paste('ds_ponto = ',count(ds_ponto),' lines', sep=''))
     previsao_ARIMA1(sk_ponto, ds_ponto, n_time_Steps)
   }
 }
