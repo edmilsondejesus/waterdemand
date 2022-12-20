@@ -58,7 +58,7 @@ criar_arquivo_resultado <- function(){
 criar_arquivo_resultado ()
 
 
-previsao_ARIMA1 <- function (sk_ponto, ds_ponto, n_time_steps){
+previsao_ARIMA2 <- function (sk_ponto, ds_ponto, n_time_steps){
   
   #ds_ponto$DATA<- as_datetime(ds_ponto$DATA)
   
@@ -106,6 +106,7 @@ previsao_ARIMA1 <- function (sk_ponto, ds_ponto, n_time_steps){
   Inicio <- Sys.time()
   
   #Search the best ARIMA model without lambda
+  print(ds_matrix)
   modelo=auto.arima(ds_matrix[,1],xreg=ds_matrix[,2:ncol(ds_matrix)], trace = TRUE,approximation = FALSE, max.p = 5, max.q = 5, lambda = lambda )
   
   #identify index number for separate data of treain 75% and test 25%
@@ -172,6 +173,7 @@ for (x in 1:tamanho$n){
   for (n_time_Steps in 1:6){
     print(paste('prediction sk_ponto=',sk_ponto$SK_PONTO,' lag times = ',n_time_Steps, sep=''))
     print(paste('ds_ponto = ',count(ds_ponto),' lines', sep=''))
+    #
     previsao_ARIMA2(sk_ponto$SK_PONTO, ds_ponto, n_time_Steps)
   }
 }

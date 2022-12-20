@@ -40,7 +40,7 @@ criar_arquivo_resultado <- function(){
 criar_arquivo_resultado ()
 
 
-previsao_ARIMA1 <- function (sk_ponto, ds_ponto, n_time_steps){
+previsao_ARIMA2 <- function (sk_ponto, ds_ponto, n_time_steps){
   
   ds_ponto$DT_MEDICAO_HORA<- as_datetime(ds_ponto$DT_MEDICAO_HORA)
 
@@ -154,6 +154,6 @@ for (x in 1:length(lista_pontos[,1])){
   for (n_time_Steps in 1:6){
     print(paste('prediction sk_ponto=',sk_ponto,' lag times = ',n_time_Steps, sep=''))
     print(paste('ds_ponto = ',count(ds_ponto),' lines', sep=''))
-    previsao_ARIMA1(sk_ponto, ds_ponto, n_time_Steps)
+    previsao_ARIMA2(sk_ponto, ds_ponto, n_time_Steps)
   }
 }

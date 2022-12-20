@@ -54,7 +54,7 @@ criar_arquivo_resultado <- function(){
 criar_arquivo_resultado ()
 
 
-previsao_ARIMA1 <- function (sk_ponto, ds_ponto, n_time_steps){
+previsao_ARIMA2 <- function (sk_ponto, ds_ponto, n_time_steps){
   
   ds_ponto$DATA<- as_datetime(ds_ponto$DATA)
 
