@@ -118,7 +118,7 @@ previsao_ARIMA1 <- function (sk_ponto, ds_ponto, n_time_steps){
   s_ddiff_order =  modelo$arma[7]
 
   #get best params names
-  ds_best_param = paste('ARMA(',ar_order,',',diff_order,',',ma_order,')(',s_ar_order,',',s_ddiff_order,',',s_ma_order,')', sep='')
+  ds_best_param = paste('ARIMA(',ar_order,',',diff_order,',',ma_order,')(',s_ar_order,',',s_ddiff_order,',',s_ma_order,')', sep='')
 
 
   accuracy = accuracy(as.numeric(y_teste), as.numeric(predicao$mean))

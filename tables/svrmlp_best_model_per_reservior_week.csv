@@ -1,0 +1,11 @@
+SK_PONTO;freq;model;N_Past_Vl;MSE;RMSE;MAE;MAPE;Duration;Best_Params
+1;3-Week;SVR-MLP;1;708361546,04;26615,06;3098,06;200,22;7,3;{'C': 12550, 'epsilon': 0,1, 'gamma': 1e-08, 'kernel': 'rbf'}
+4;3-Week;SVR-MLP;2;184302359,1;13575,8;3099,47;17,96;7,8;{'C': 1255555, 'epsilon': 0,001, 'gamma': 1e-08, 'kernel': 'rbf'}
+5;3-Week;SVR-MLP;3;284739384,28;16874,22;2830,53;13,51;9,4;{'C': 12550, 'epsilon': 0,1, 'gamma': 1e-08, 'kernel': 'rbf'}
+6;3-Week;SVR-MLP;1;22681963,17;4762,56;707,3;12,04;7,4;{'C': 1255555, 'epsilon': 0,1, 'gamma': 1e-08, 'kernel': 'rbf'}
+7;3-Week;SVR-MLP;2;108689256,22;10425,41;3371,89;13,05;9,8;{'C': 12550, 'epsilon': 0,1, 'gamma': 1e-08, 'kernel': 'rbf'}
+8;3-Week;SVR-MLP;4;12426034,28;3525,06;847,28;13,43;9,5;{'C': 12550, 'epsilon': 0,0001, 'gamma': 1e-06, 'kernel': 'rbf'}
+9;3-Week;SVR-MLP;1;154516966,6;12430,49;3076,69;24,03;9,0;{'C': 1255555, 'epsilon': 0,001, 'gamma': 1e-08, 'kernel': 'rbf'}
+11;3-Week;SVR-MLP;1;238998186,77;15459,57;4413,39;12,11;6,9;{'C': 12550, 'epsilon': 0,0001, 'gamma': 1e-07, 'kernel': 'rbf'}
+12;3-Week;SVR-MLP;1;33789624,96;5812,88;1214,79;12,05;8,7;{'C': 12550, 'epsilon': 0,0001, 'gamma': 1e-08, 'kernel': 'rbf'}
+13;3-Week;SVR-MLP;1;55173310864,45;234890,0;62854,54;136,49;7,7;{'C': 1255555, 'epsilon': 0,1, 'gamma': 1e-08, 'kernel': 'rbf'}

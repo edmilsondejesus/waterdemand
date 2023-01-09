@@ -1,0 +1,11 @@
+SK_PONTO;freq;model;N_Past_Vl;MSE;RMSE;MAE;MAPE;Duration;Best_Params
+1;2-Day;SVR-LSTM;1;5291315,18;2300,29;656,83;29,07;21,3;SVR-LSTM{'C': 12550, 'epsilon': 0.1, 'gamma': 1e-08, 'kernel': 'rbf'}-LSTM(100,96,90)
+4;2-Day;SVR-LSTM;6;3131957,07;1769,73;360,41;16,06;15,1;SVR-LSTM{'C': 12550, 'epsilon': 0.001, 'gamma': 1e-08, 'kernel': 'rbf'}-LSTM(100,96,90)
+5;2-Day;SVR-LSTM;3;3813062,17;1952,71;803,39;10,05;10,2;SVR-LSTM{'C': 12550, 'epsilon': 0.01, 'gamma': 1e-08, 'kernel': 'rbf'}-LSTM(100,96,90)
+6;2-Day;SVR-LSTM;4;329489,97;574,01;266,3;6,36;23,7;SVR-LSTM{'C': 12550, 'epsilon': 0.0001, 'gamma': 1e-08, 'kernel': 'rbf'}-LSTM(100,96,90)
+7;2-Day;SVR-LSTM;2;5106872,8;2259,84;1200,15;16,52;17,0;SVR-LSTM{'C': 12550, 'epsilon': 0.0001, 'gamma': 1e-07, 'kernel': 'rbf'}-LSTM(100,96,90)
+8;2-Day;SVR-LSTM;6;55503,37;235,59;40,74;2,83;18,8;SVR-LSTM{'C': 12550, 'epsilon': 0.01, 'gamma': 1e-08, 'kernel': 'rbf'}-LSTM(100,96,90)
+9;2-Day;SVR-LSTM;1;735061,02;857,36;86,55;4,36;12,6;SVR-LSTM{'C': 12550, 'epsilon': 0.1, 'gamma': 1e-08, 'kernel': 'rbf'}-LSTM(100,96,90)
+11;2-Day;SVR-LSTM;5;1382366,84;1175,74;421,45;3,79;14,2;SVR-LSTM{'C': 12550, 'epsilon': 0.001, 'gamma': 1e-08, 'kernel': 'rbf'}-LSTM(100,96,90)
+12;2-Day;SVR-LSTM;6;555871,89;745,57;302,56;6,61;20,6;SVR-LSTM{'C': 12550, 'epsilon': 0.0001, 'gamma': 1e-08, 'kernel': 'rbf'}-LSTM(100,96,90)
+13;2-Day;SVR-LSTM;1;476659361,87;21832,53;4710,66;78,37;17,9;SVR-LSTM{'C': 12550, 'epsilon': 0.0001, 'gamma': 1e-07, 'kernel': 'rbf'}-LSTM(100,96,90)

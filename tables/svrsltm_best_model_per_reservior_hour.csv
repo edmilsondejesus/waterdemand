@@ -1,0 +1,13 @@
+SK_PONTO;freq;model;N_Past_Vl;MSE;RMSE;MAE;MAPE;Duration;Best_Params
+1;1-Hour;SVR-LSTM;2;1867,54;43,22;11,4;3,54;116,9;SVR-LSTM{'C': 125550, 'epsilon': 0.01, 'gamma': 1e-08, 'kernel': 'rbf'}-LSTM(100,96,90)
+4;1-Hour;SVR-LSTM;2;6342,35;79,64;36,86;10,13;166,9;SVR-LSTM{'C': 125550, 'epsilon': 0.0001, 'gamma': 1e-08, 'kernel': 'rbf'}-LSTM(100,96,90)
+5;1-Hour;SVR-LSTM;5;6977,82;83,53;47,35;7,17;156,3;SVR-LSTM{'C': 12550, 'epsilon': 0.01, 'gamma': 1e-08, 'kernel': 'rbf'}-LSTM(100,96,90)
+6;1-Hour;SVR-LSTM;2;10132,68;100,66;82,27;34,41;224,8;SVR-LSTM{'C': 12550, 'epsilon': 0.1, 'gamma': 1e-08, 'kernel': 'rbf'}-LSTM(100,96,90)
+7;1-Hour;SVR-LSTM;6;2159,31;46,47;23,23;6,09;273,5;SVR-LSTM{'C': 12550, 'epsilon': 0.001, 'gamma': 1e-07, 'kernel': 'rbf'}-LSTM(100,96,90)
+8;1-Hour;SVR-LSTM;1;44,13;6,64;3,15;2,27;191,2;SVR-LSTM{'C': 125550, 'epsilon': 0.01, 'gamma': 1e-07, 'kernel': 'rbf'}-LSTM(100,96,90)
+8;1-Hour;SVR-LSTM;1;44,01;6,63;3,14;2,27;219,7;SVR-LSTM{'C': 125550, 'epsilon': 0.01, 'gamma': 1e-07, 'kernel': 'rbf'}-LSTM(100,96,90)
+9;1-Hour;SVR-LSTM;1;141,23;11,88;8,13;2,04;77,9;SVR-LSTM{'C': 125550, 'epsilon': 0.1, 'gamma': 1e-08, 'kernel': 'rbf'}-LSTM(100,96,90)
+11;1-Hour;SVR-LSTM;4;522,88;22,87;10,74;1,82;240,1;SVR-LSTM{'C': 125550, 'epsilon': 0.1, 'gamma': 1e-08, 'kernel': 'rbf'}-LSTM(100,96,90)
+12;1-Hour;SVR-LSTM;3;1534,5;39,17;29,11;9,87;188,3;SVR-LSTM{'C': 125550, 'epsilon': 0.001, 'gamma': 1e-08, 'kernel': 'rbf'}-LSTM(100,96,90)
+13;1-Hour;SVR-LSTM;1;63133,65;251,26;173,6;5,91;153,2;SVR-LSTM{'C': 12550, 'epsilon': 0.1, 'gamma': 1e-08, 'kernel': 'rbf'}-LSTM(100,96,90)
+13;1-Hour;SVR-LSTM;1;63152,7;251,3;173,46;5,91;3140,4;SVR-LSTM{'C': 12550, 'epsilon': 0.1, 'gamma': 1e-08, 'kernel': 'rbf'}-LSTM(100,96,90)

@@ -1,0 +1,12 @@
+SK_PONTO;freq;model;N_Past_Vl;MSE;RMSE;MAE;MAPE;Duration;Best_Params
+1;2-Day;ARIMA2;4;3972,49;63,03;43,61;6,64;146,6;ARIMA(3,1,0)(0,0,0)
+4;2-Day;LSTM;2;3960186,53;1990,02;330,86;8,64;8,8; LSTM(100,96,90)
+5;2-Day;LSTM;3;3524767,56;1877,44;669,97;8,35;9,1; LSTM(100,96,90)
+6;2-Day;MLP;4;260528,7;510,42;195,76;5,46;38,6;{'activation': 'identity', 'alpha': 0,0001, 'hidden_layer_sizes': (2, 6, 1), 'max_iter': 500, 'solver': 'adam'}
+7;2-Day;ARIMA2;1;2207,54;46,98;36,44;6,45;31,1;ARIMA(0,1,1)(0,0,0)
+8;2-Day;SVR;4;58117,22;241,08;28,96;2,71;73,5;{'C': 12550, 'epsilon': 0,1, 'gamma': 1e-08, 'kernel': 'rbf'}
+8;2-Day;SVR;5;57288,34;239,35;30,72;2,71;65,1;{'C': 12550, 'epsilon': 0,1, 'gamma': 1e-08, 'kernel': 'rbf'}
+9;2-Day;ARIMA1;4;68,44;8,27;4,57;1,05;78,8;ARIMA(0,1,1)(0,0,0)
+11;2-Day;ARIMA1;1;441,44;21,01;13,8;1,63;46,9;ARIMA(1,1,1)(0,0,0)
+12;2-Day;MLP;4;510824,66;714,72;224,95;5,96;36,1;{'activation': 'identity', 'alpha': 0,01, 'hidden_layer_sizes': (4, 6, 1), 'max_iter': 500, 'solver': 'adam'}
+13;2-Day;ARIMA1;2;114778,36;338,79;262,37;7,44;61,2;ARIMA(1,1,1)(0,0,0)

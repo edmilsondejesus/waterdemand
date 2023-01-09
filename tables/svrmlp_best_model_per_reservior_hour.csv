@@ -1,0 +1,11 @@
+SK_PONTO;freq;model;N_Past_Vl;MSE;RMSE;MAE;MAPE;Duration;Best_Params
+1;1-Hour;SVR-MLP;5;1798,43;42,41;8,81;3,32;176,6;{'C': 12550, 'epsilon': 0,0001, 'gamma': 1e-08, 'kernel': 'rbf'}
+4;1-Hour;SVR-MLP;4;7701,85;87,76;56,28;11,96;298,6;{'C': 12550, 'epsilon': 0,1, 'gamma': 1e-08, 'kernel': 'rbf'}
+5;1-Hour;SVR-MLP;6;5043,59;71,02;33,51;5,82;273,4;{'C': 12550, 'epsilon': 0,01, 'gamma': 1e-08, 'kernel': 'rbf'}
+6;1-Hour;SVR-MLP;4;4417,04;66,46;28,15;34,32;317,4;{'C': 12550, 'epsilon': 0,01, 'gamma': 1e-08, 'kernel': 'rbf'}
+7;1-Hour;SVR-MLP;2;1832,26;42,8;16,7;4,7;214,6;{'C': 1255555, 'epsilon': 0,1, 'gamma': 1e-08, 'kernel': 'rbf'}
+8;1-Hour;SVR-MLP;5;26,38;5,14;1,57;1,33;463,8;{'C': 125550, 'epsilon': 0,001, 'gamma': 1e-08, 'kernel': 'rbf'}
+9;1-Hour;SVR-MLP;1;68,82;8,3;2,81;0,95;102,6;{'C': 125550, 'epsilon': 0,1, 'gamma': 1e-08, 'kernel': 'rbf'}
+11;1-Hour;SVR-MLP;4;450,28;21,22;7,72;1,54;229,9;{'C': 125550, 'epsilon': 0,1, 'gamma': 1e-08, 'kernel': 'rbf'}
+12;1-Hour;SVR-MLP;6;1301,32;36,07;18,35;8,09;258,7;{'C': 125550, 'epsilon': 0,1, 'gamma': 1e-08, 'kernel': 'rbf'}
+13;1-Hour;SVR-MLP;3;46291,11;215,15;88,16;4,33;252,0;{'C': 12550, 'epsilon': 0,001, 'gamma': 1e-08, 'kernel': 'rbf'}

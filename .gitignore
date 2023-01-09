@@ -129,3 +129,4 @@ dmypy.json
 .pyre/
 #pastas para não comitar
 data/
+LSTM_Model_Hour_grafico_R9

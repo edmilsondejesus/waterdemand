@@ -25,7 +25,8 @@ ds_water <- read.csv(paste(caminho,arquivo, sep=""), header = TRUE, sep = ";", e
 ds_water[c('DATA')]<-str_split_fixed(ds_water$DT_MEDICAO_HORA,' ',1)
 ds_water$DATA<-as_date(ds_water$DATA)
 
-ds_water$WEEK <- as.numeric(strftime(ds_water$DATA, format = "%V"))*10000 + as.numeric(strftime(ds_water$DATA, format = "%Y"))
+#ds_water$WEEK <- as.numeric(strftime(ds_water$DATA, format = "%V"))*10000 + as.numeric(strftime(ds_water$DATA, format = "%Y"))
+ds_water$WEEK <- as.numeric(format(ds_water$DATA, "%G%V"))
 
 head(ds_water)
 
@@ -34,7 +35,7 @@ ds_water <- ds_water %>% group_by(SK_PONTO, WEEK) %>%
   summarize(PRECIPITACAO = sum(PRECIPITACAO), PRESSAO_ATMOSFERICA=mean(PRESSAO_ATMOSFERICA), 
             TEMPERATURA_DO_AR_C=mean(TEMPERATURA_DO_AR_C), UMIDADE_RELATIVA_DO_AR=mean(UMIDADE_RELATIVA_DO_AR), 
             VELOCIDADE_VENTO=mean(VELOCIDADE_VENTO),VL_MEDICAO=sum(VL_MEDICAO), .groups='drop') %>%
-  arrange(SK_PONTO)
+  arrange(SK_PONTO,WEEK)
 
 caminho_result = paste("C:/Users/Edmilson/Downloads/mestrado/waterdemand/results/", sep="")
 arquivo_result = 'Result_ARIMA1_Model_Week.csv'
@@ -137,7 +138,7 @@ previsao_ARIMA1 <- function (sk_ponto, ds_ponto, n_time_steps){
   s_ddiff_order =  modelo$arma[7]
 
   #get best params names
-  ds_best_param = paste('ARMA(',ar_order,',',diff_order,',',ma_order,')(',s_ar_order,',',s_ddiff_order,',',s_ma_order,')', sep='')
+  ds_best_param = paste('ARIMA(',ar_order,',',diff_order,',',ma_order,')(',s_ar_order,',',s_ddiff_order,',',s_ma_order,')', sep='')
 
 
   accuracy = accuracy(as.numeric(y_teste), as.numeric(predicao$mean))
