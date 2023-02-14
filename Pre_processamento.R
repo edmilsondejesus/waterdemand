@@ -173,11 +173,26 @@ ds_skp11<-remove_outliers(ds_skp11)
 ds_skp12<-remove_outliers(ds_skp12)
 
 
-#use this function to generate art combination at 500 dpi, print and save on GIMP
+#use this function to generate art combination at 500 dpi, print and save on jpg
 #method que funciona
-jpeg('C:\\Users\\Edmilson\\Downloads\\mestrado\\Orientacao\\artigo01\\Latex\\figures\\FIG4.jpg', quality = 100, res = 500, width=1772, height=1528)
+#jpeg('C:\\Users\\Edmilson\\Downloads\\mestrado\\Orientacao\\artigo01\\Latex\\figures\\FIG3.jpg', quality = 100, res = 500, width=1772, height=1528)
+jpeg('C:\\Users\\Edmilson\\Downloads\\mestrado\\Orientacao\\artigo01\\Latex\\figures\\FIG3.jpg', quality = 100, res = 1000, width=3543, height=3055)
+
+#or tiff
+tiff('C:\\Users\\Edmilson\\Downloads\\mestrado\\Orientacao\\artigo03\\Latex\\figures\\Fig3.tiff', res = 1000, width=3543, height=3055)
+
+tiff('C:\\Users\\Edmilson\\Downloads\\mestrado\\Orientacao\\artigo03\\submission\\Latex\\Fig3.tiff', res = 600, width=3543, height=3055)
+
+postscript('C:\\Users\\Edmilson\\Downloads\\mestrado\\Orientacao\\artigo02\\submission\\Fig3.eps',  width=230, height=160)
+
+
 par(mfrow=c(1,1))
-ggplot(data = ds_skp13, aes(x = DT_MEDICAO_HORA, y = VL_MEDICAO)) + geom_point() 
+
+#ggplot(data = ds_skp13, aes(x = DT_MEDICAO_HORA, y = VL_MEDICAO)) + geom_point(size = 0.2) + geom_line(color = "blue", size = 0.2)  + labs(x = "Time in hours", y = "Consumption l/h")
+ggplot(data = ds_skp13, aes(x = DT_MEDICAO_HORA, y = VL_MEDICAO)) + geom_point(size = 0.2) +
+  geom_line(color = "blue", size = 0.2)  + labs(x = "Time in hours", y = "Consumption l/h", )+
+  theme(axis.text=element_text(size=6),
+        axis.title=element_text(size=6))
 dev.off()
 
 #show_plot_dynt(ds_skp13,1772,1528,500)
@@ -221,11 +236,24 @@ ds_skp12 <- replace_consumo_negativo(ds_skp12, 3)
 ds_skp13 <- replace_consumo_negativo(ds_skp13, 3)
 
 
-#use this function to generate art combination at 500 dpi, after preprocessing, print and save on GIMP
+#use this function to generate art combination at 500 dpi, after preprocessing, print and save on jpg
 #method que funciona
-jpeg('C:\\Users\\Edmilson\\Downloads\\mestrado\\Orientacao\\artigo01\\Latex\\figures\\FIG5.jpg', quality = 100, res = 500, width=1772, height=1528)
+#jpeg('C:\\Users\\Edmilson\\Downloads\\mestrado\\Orientacao\\artigo01\\Latex\\figures\\FIG4.jpg', quality = 100, res = 500, width=1772, height=1528)
+jpeg('C:\\Users\\Edmilson\\Downloads\\mestrado\\Orientacao\\artigo01\\Latex\\figures\\FIG4.jpg', quality = 100, res = 1000, width=3543, height=3055)
+
+#or
+tiff('C:\\Users\\Edmilson\\Downloads\\mestrado\\Orientacao\\artigo03\\Latex\\figures\\Fig4.tiff',  res = 1000, width=3543, height=3055)
+
+tiff('C:\\Users\\Edmilson\\Downloads\\mestrado\\Orientacao\\artigo03\\submission\\Latex\\Fig4.tiff',  res = 600, width=3543, height=3055)
+
+postscript("Figure1.eps",width=11.5,height=16)
+
 par(mfrow=c(1,1))
-ggplot(data = ds_skp13, aes(x = DT_MEDICAO_HORA, y = VL_MEDICAO)) + geom_point() 
+#ggplot(data = ds_skp13, aes(x = DT_MEDICAO_HORA, y = VL_MEDICAO)) + geom_point() 
+ggplot(data = ds_skp13, aes(x = DT_MEDICAO_HORA, y = VL_MEDICAO)) + geom_point(size = 0.2) +
+  geom_line(color = "blue", size = 0.2)  + labs(x = "Time in hours", y = "Consumption l/h", )+
+  theme(axis.text=element_text(size=6),
+        axis.title=element_text(size=6))
 dev.off()
 #show_plot_dynt(ds_skp13,1772,1528,500)
 
