@@ -1,1 +1,1 @@
-The DS_Agua_2017_2022_por_ponto.csv file is composed of simulated and scrambled data built to enable the testing of the proposed models. Therefore, they do not correspond to the real data of the EMBASA reservoirs.
+The DS_Agua_2017_2022_por_ponto.csv file is composed of simulated and scrambled data built to enable the testing of the proposed models. Therefore, they do not correspond to the real data of the reservoirs.
