@@ -65,7 +65,7 @@ caminho = paste("C:/Users/Edmilson/Downloads/mestrado/waterdemand/", sep="")
 
 source(paste(caminho,"basic.r",sep = ""))
 
-caminho = paste("C:/Users/Edmilson/Downloads/mestrado/waterdemand/data/", sep="")
+caminho = paste("C:/Users/Edmilson/Downloads/mestrado/waterdemand/data2/", sep="")
 
 #--------------------   Introdução: Conhecendo instâncias x atributos x valores  ----------
 
@@ -176,15 +176,7 @@ ds_skp12<-remove_outliers(ds_skp12)
 #use this function to generate art combination at 500 dpi, print and save on jpg
 #method que funciona
 #jpeg('C:\\Users\\Edmilson\\Downloads\\mestrado\\Orientacao\\artigo01\\Latex\\figures\\FIG3.jpg', quality = 100, res = 500, width=1772, height=1528)
-jpeg('C:\\Users\\Edmilson\\Downloads\\mestrado\\Orientacao\\artigo01\\Latex\\figures\\FIG3.jpg', quality = 100, res = 1000, width=3543, height=3055)
-
-#or tiff
-tiff('C:\\Users\\Edmilson\\Downloads\\mestrado\\Orientacao\\artigo03\\Latex\\figures\\Fig3.tiff', res = 1000, width=3543, height=3055)
-
-tiff('C:\\Users\\Edmilson\\Downloads\\mestrado\\Orientacao\\artigo03\\submission\\Latex\\Fig3.tiff', res = 600, width=3543, height=3055)
-
-postscript('C:\\Users\\Edmilson\\Downloads\\mestrado\\Orientacao\\artigo02\\submission\\Fig3.eps',  width=230, height=160)
-
+#jpeg('C:\\Users\\Edmilson\\Downloads\\mestrado\\Orientacao\\artigo01\\Latex\\figures\\FIG3.jpg', quality = 100, res = 1000, width=3543, height=3055)
 
 par(mfrow=c(1,1))
 
@@ -193,7 +185,22 @@ ggplot(data = ds_skp13, aes(x = DT_MEDICAO_HORA, y = VL_MEDICAO)) + geom_point(s
   geom_line(color = "blue", size = 0.2)  + labs(x = "Time in hours", y = "Consumption l/h", )+
   theme(axis.text=element_text(size=6),
         axis.title=element_text(size=6))
+
+
 dev.off()
+
+#or eps generation
+par(mfrow=c(1,1))
+
+#ggplot(data = ds_skp13, aes(x = DT_MEDICAO_HORA, y = VL_MEDICAO)) + geom_point(size = 0.2) + geom_line(color = "blue", size = 0.2)  + labs(x = "Time in hours", y = "Consumption l/h")
+ggplot(data = ds_skp13, aes(x = DT_MEDICAO_HORA, y = VL_MEDICAO)) + geom_point(size = 0.2) +
+  geom_line(color = "blue", size = 0.2)  + labs(x = "Time in hours", y = "Consumption l/h", )+
+  theme(axis.text=element_text(size=6),
+        axis.title=element_text(size=6))
+
+#ggsave(file = "C:\\Users\\Edmilson\\Downloads\\mestrado\\Orientacao\\artigo02\\submission\\Fig3.eps")         
+
+
 
 #show_plot_dynt(ds_skp13,1772,1528,500)
 
@@ -239,14 +246,7 @@ ds_skp13 <- replace_consumo_negativo(ds_skp13, 3)
 #use this function to generate art combination at 500 dpi, after preprocessing, print and save on jpg
 #method que funciona
 #jpeg('C:\\Users\\Edmilson\\Downloads\\mestrado\\Orientacao\\artigo01\\Latex\\figures\\FIG4.jpg', quality = 100, res = 500, width=1772, height=1528)
-jpeg('C:\\Users\\Edmilson\\Downloads\\mestrado\\Orientacao\\artigo01\\Latex\\figures\\FIG4.jpg', quality = 100, res = 1000, width=3543, height=3055)
-
-#or
-tiff('C:\\Users\\Edmilson\\Downloads\\mestrado\\Orientacao\\artigo03\\Latex\\figures\\Fig4.tiff',  res = 1000, width=3543, height=3055)
-
-tiff('C:\\Users\\Edmilson\\Downloads\\mestrado\\Orientacao\\artigo03\\submission\\Latex\\Fig4.tiff',  res = 600, width=3543, height=3055)
-
-postscript("Figure1.eps",width=11.5,height=16)
+#jpeg('C:\\Users\\Edmilson\\Downloads\\mestrado\\Orientacao\\artigo01\\Latex\\figures\\FIG4.jpg', quality = 100, res = 1000, width=3543, height=3055)
 
 par(mfrow=c(1,1))
 #ggplot(data = ds_skp13, aes(x = DT_MEDICAO_HORA, y = VL_MEDICAO)) + geom_point() 
@@ -256,6 +256,16 @@ ggplot(data = ds_skp13, aes(x = DT_MEDICAO_HORA, y = VL_MEDICAO)) + geom_point(s
         axis.title=element_text(size=6))
 dev.off()
 #show_plot_dynt(ds_skp13,1772,1528,500)
+
+par(mfrow=c(1,1))
+#ggplot(data = ds_skp13, aes(x = DT_MEDICAO_HORA, y = VL_MEDICAO)) + geom_point() 
+ggplot(data = ds_skp13, aes(x = DT_MEDICAO_HORA, y = VL_MEDICAO)) + geom_point(size = 0.2) +
+  geom_line(color = "blue", size = 0.2)  + labs(x = "Time in hours", y = "Consumption l/h", )+
+  theme(axis.text=element_text(size=6),
+        axis.title=element_text(size=6))
+
+#ggsave(file = "C:\\Users\\Edmilson\\Downloads\\mestrado\\Orientacao\\artigo02\\submission\\Fig4b.eps")         
+
 
 #---------- Exploration: Charts for analysis and understanding ----------
 
@@ -290,7 +300,7 @@ ds_consumo$VL_MEDICAO=as.numeric(ds_consumo$VL_MEDICAO)
 ds_consumo$DT_MEDICAO_HORA <- as_datetime(parse_date_time(ds_consumo$DT_MEDICAO_HORA, "%y-%m-%d-%H.%M.%S"))
 
 #save file
-f_out <- 'C:/Users/Edmilson/Downloads/mestrado/waterdemand/data/DADOS_CONSUMO_2017_a_2022_tratado_geral.csv'
+f_out <- 'C:/Users/Edmilson/Downloads/mestrado/waterdemand/data2/DADOS_CONSUMO_2017_a_2022_tratado_geral.csv'
 write.csv2(ds_consumo,f_out, col.names=TRUE, sep=';',qmethod="double" )
 desc(ds_consumo)
 
@@ -305,7 +315,7 @@ plot(ds_dados_c$DT_MEDICAO_HORA,ds_dados_c$VL_MEDICAO)
 #show_plot_dyntotal(ds_dados_c)
 
 #salvar para arquivo
-f_out <- 'C:/Users/Edmilson/Downloads/mestrado/waterdemand/data/DADOS_CONSUMO_2017_a_2022_tratado_unificado.csv'
+f_out <- 'C:/Users/Edmilson/Downloads/mestrado/waterdemand/data2/DADOS_CONSUMO_2017_a_2022_tratado_unificado.csv'
 write.csv2(ds_dados_c,f_out, col.names=TRUE, sep=';',qmethod="double" )
 
 
@@ -320,7 +330,7 @@ plot(ds_dados_c$DT_MEDICAO_HORA,ds_dados_c$VL_MEDICAO)
 #show_plot_dyntotal(ds_dados_c)
 
 #salvar para arquivo
-f_out <- 'C:/Users/Edmilson/Downloads/mestrado/waterdemand/data/DADOS_CONSUMO_2017_a_2022_tratado_por_ponto.csv'
+f_out <- 'C:/Users/Edmilson/Downloads/mestrado/waterdemand/data2/DADOS_CONSUMO_2017_a_2022_tratado_por_ponto.csv'
 write.csv2(ds_dados_c,f_out, col.names=TRUE, sep=';',qmethod="double" )
 
 
@@ -334,7 +344,7 @@ write.csv2(ds_dados_c,f_out, col.names=TRUE, sep=';',qmethod="double" )
 
 #--------------------   Introdução: Conhecendo instâncias x atributos x valores  ----------
 
-caminho = paste("C:/Users/Edmilson/Downloads/mestrado/waterdemand/data/", sep="")
+caminho = paste("C:/Users/Edmilson/Downloads/mestrado/waterdemand/data2/", sep="")
 
 dados_clima <- read.csv(paste(caminho,"INMET_SALVADOR_2016_A_2022.csv", sep=""), header = TRUE, sep = ";", encoding = 'latin1')
 
@@ -556,7 +566,7 @@ rm(df_erros_ano.long)
 rm(df_erros_ano)
 
 #salva dados tratado em arquivo com leitura por ponto
-f_out <- 'C:/Users/Edmilson/Downloads/mestrado/waterdemand/data/DADOS_TEMPERATURA_2017_a_2022_tratado.csv'
+f_out <- 'C:/Users/Edmilson/Downloads/mestrado/waterdemand/data2/DADOS_TEMPERATURA_2017_a_2022_tratado.csv'
 write.csv2(ds_clima_tratado,f_out, col.names=TRUE, sep=';',qmethod="double")
 count.nas(ds_clima_tratado)
 count.nas(ds_dados_c)
@@ -571,6 +581,8 @@ ds_data <- merge(ds_clima_tratado, ds_dados_c, by="DT_MEDICAO_HORA")
 #limpa o dataset
 ds_data = subset(ds_data, select = -c(DATA,HORA,DT_DATA, NN_DIAMES, NN_HORA, ROWNUM, NN_ANO.x, NN_MESANO, NN_MES, DT_MEDICAO, NN_ANO.y))
 
+#ds_data2 <- subset(ds_data, (HORA >= 22) &(HORA <= 8))
+
 summary(ds_data)
 
 
@@ -581,16 +593,24 @@ ds_data$UMIDADE_RELATIVA_DO_AR=as.numeric(ds_data$UMIDADE_RELATIVA_DO_AR)
 ds_data$VELOCIDADE_VENTO=as.numeric(ds_data$VELOCIDADE_VENTO)
 ds_data$VL_MEDICAO=as.numeric(ds_data$VL_MEDICAO)
 
-ds_data
+head(ds_data)
+
+
 #salva dados tratado em arquivo
-f_out <- 'C:/Users/Edmilson/Downloads/mestrado/waterdemand/data/DS_Agua_2017_2022_por_ponto.csv'
+f_out <- 'C:/Users/Edmilson/Downloads/mestrado/waterdemand/data2/DS_Agua_2017_2022_por_ponto.csv'
 write.csv2(ds_data,f_out, sep = ';')
 write.table(ds_data,f_out,sep = ';', dec = '.')
+
+#ds_data$VL_MEDICAO=sample(ds_data$VL_MEDICAO)
+#f_out <- 'C:/Users/Edmilson/Downloads/mestrado/waterdemand/data/DS_Agua_2017_2022_por_ponto_shuffled.csv'
+#write.csv2(ds_data,f_out, sep = ';')
+#write.table(ds_data,f_out,sep = ';', dec = '.')
+
 
 View(ds_data)
 #Merge dos dados metereológicos e de consumo unificado
 
-ds_dados_c <- read.csv2('C:/Users/Edmilson/Downloads/mestrado/waterdemand/data/DADOS_CONSUMO_2017_a_2022_tratado_unificado.csv', sep=';')
+ds_dados_c <- read.csv2('C:/Users/Edmilson/Downloads/mestrado/waterdemand/data2/DADOS_CONSUMO_2017_a_2022_tratado_unificado.csv', sep=';')
 #join clima x consumo pela DT_MEDICAO_HORA
 ds_data <- merge(ds_clima_tratado, ds_dados_c, by="DT_MEDICAO_HORA")
 
@@ -608,7 +628,7 @@ ds_data$VELOCIDADE_VENTO=as.numeric(ds_data$VELOCIDADE_VENTO)
 ds_data$VL_MEDICAO=as.numeric(ds_data$VL_MEDICAO)
 
 #salva dados tratado em arquivo
-f_out <- 'C:/Users/Edmilson/Downloads/mestrado/waterdemand/data/DS_Agua_2017_2022_unificado.csv'
+f_out <- 'C:/Users/Edmilson/Downloads/mestrado/waterdemand/data2/DS_Agua_2017_2022_unificado.csv'
 #write.csv2(ds_data,f_out, sep = )
 write.table(ds_data,f_out,sep = ';', dec = '.')
 

@@ -128,5 +128,6 @@ dmypy.json
 # Pyre type checker
 .pyre/
 #pastas para não comitar
-data/
+data2/
+data3/
 LSTM_Model_Hour_grafico_R9
