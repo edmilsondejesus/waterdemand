@@ -38,17 +38,17 @@ library(tidyverse)
 #Para descarregar o pacote
 #detach("package:tidyverse", unload = TRUE)
 
-# Instala pacote zoo de médias móveis 
+# Instala pacote zoo de mï¿½dias mï¿½veis 
 #install.packages("zoo",dependences = TRUE)
-library(zoo) # pacote com função para médias móveis
+library(zoo) # pacote com funï¿½ï¿½o para mï¿½dias mï¿½veis
 
-# Carrega pacote de manipulação otimizada de strings
+# Carrega pacote de manipulaï¿½ï¿½o otimizada de strings
 library(stringr)
 
 #Carrega package lubirdate  para trabalhar com data/hora 
 library(lubridate)
 
-# Retorna data e hora no momento da execução
+# Retorna data e hora no momento da execuï¿½ï¿½o
 # base::date()
 
 
@@ -67,7 +67,7 @@ source(paste(caminho,"basic.r",sep = ""))
 
 caminho = paste("C:/Users/Edmilson/Downloads/mestrado/waterdemand/data2/", sep="")
 
-#--------------------   Introdução: Conhecendo instâncias x atributos x valores  ----------
+#--------------------   Introduï¿½ï¿½o: Conhecendo instï¿½ncias x atributos x valores  ----------
 
 
 dados_consumo <- read.csv(paste(caminho,"DADOS_TELEMETRIA_2017_a_2022RMS.csv", sep=""), header = TRUE, sep = ";", encoding = 'latin1')
@@ -85,7 +85,7 @@ info(dados_consumo)
 #Boxplot of booking points
 boxplot(dados_consumo$VL_MEDICAO~dados_consumo$SK_PONTO)
 
-#--------------------   Limpeza: Identificação e substituição de dados inválidos ----------
+#--------------------   Limpeza: Identificaï¿½ï¿½o e substituiï¿½ï¿½o de dados invï¿½lidos ----------
 
 #copia a data original
 dados_consumo$DT_ORIGINAL<-dados_consumo$DT_MEDICAO
@@ -334,15 +334,15 @@ f_out <- 'C:/Users/Edmilson/Downloads/mestrado/waterdemand/data2/DADOS_CONSUMO_2
 write.csv2(ds_dados_c,f_out, col.names=TRUE, sep=';',qmethod="double" )
 
 
-#Finalizado o préprocessamento dos dados de consumo
+#Finalizado o prï¿½processamento dos dados de consumo
 
 
 #----------------------------------------------------------------------------------
 #----------------------------------------------------------------------------------
-#-----------------------------------Tratamento dos dados de metereológicos ------------------------------------------
+#-----------------------------------Tratamento dos dados de metereolï¿½gicos ------------------------------------------
 
 
-#--------------------   Introdução: Conhecendo instâncias x atributos x valores  ----------
+#--------------------   Introduï¿½ï¿½o: Conhecendo instï¿½ncias x atributos x valores  ----------
 
 caminho = paste("C:/Users/Edmilson/Downloads/mestrado/waterdemand/data2/", sep="")
 
@@ -356,12 +356,12 @@ count.nas(dados_clima)
 #Medidas descritivas
 summary(dados_clima)
 
-#--------------------   Limpeza: Identificação e substituição de dados inválidos ----------
+#--------------------   Limpeza: Identificaï¿½ï¿½o e substituiï¿½ï¿½o de dados invï¿½lidos ----------
 
 # Converte character para Data usando o formato dmy
 dados_clima$DT_DATA<- dmy(dados_clima$DATA)
 
-#carrega o dia do mês baseado na data
+#carrega o dia do mï¿½s baseado na data
 dados_clima$NN_DIAMES=day(dados_clima$DT_DATA)
 
 #Convert character hora para Integer hora 
@@ -372,22 +372,22 @@ class(dados_clima$NN_HORA)
 #Substitui caracter virgula por ponto
 dados_clima$TEMPERATURA_DO_AR_C <- str_replace(dados_clima$TEMPERATURA_DO_AR_C,",",".")
 
-#Converte temperatura para formato numérico
+#Converte temperatura para formato numï¿½rico
 dados_clima$TEMPERATURA_DO_AR_C <- as.numeric(dados_clima$TEMPERATURA_DO_AR_C)
 
 #Substitui caracter virgula por ponto
 dados_clima$VELOCIDADE_VENTO <- str_replace(dados_clima$VELOCIDADE_VENTO,",",".")
 
-#Converte velocidade para formato numérico
+#Converte velocidade para formato numï¿½rico
 dados_clima$VELOCIDADE_VENTO <- as.numeric(dados_clima$VELOCIDADE_VENTO)
 
 #Substitui caracter virgula por ponto
 dados_clima$PRESSAO_ATMOSFERICA <- str_replace(dados_clima$PRESSAO_ATMOSFERICA,",",".")
 
-#Converte pressão para caracter numérico
+#Converte pressï¿½o para caracter numï¿½rico
 dados_clima$PRESSAO_ATMOSFERICA <- as.numeric(dados_clima$PRESSAO_ATMOSFERICA)
 
-#Converte precipitacao para caracter numérico
+#Converte precipitacao para caracter numï¿½rico
 dados_clima$PRECIPITACAO <- str_replace(dados_clima$PRECIPITACAO,",",".")
 dados_clima$PRECIPITACAO <- as.numeric(dados_clima$PRECIPITACAO)
 
@@ -405,10 +405,10 @@ boxplot.temperatura <-boxplot(dados_clima$TEMPERATURA_DO_AR_C)
 boxplot.temperatura$out
 
 
-#temperaturas válidas
+#temperaturas vï¿½lidas
 df_temperatura_sem_dados_ausentes = subset(dados_clima, TEMPERATURA_DO_AR_C > -9999)
 
-#grafico de temperaturas válidas
+#grafico de temperaturas vï¿½lidas
 ggplot(data = df_temperatura_sem_dados_ausentes, aes(x = DATA, y = TEMPERATURA_DO_AR_C)) + geom_line(color = "#FC4E07", size = 2)
 
 boxplot.temperatura <-boxplot(df_temperatura_sem_dados_ausentes$TEMPERATURA_DO_AR_C)
@@ -440,17 +440,17 @@ df_temp24122019 <- subset(dados_clima, (DT_DATA >= as.Date("2019-12-24")) & (DT_
 ggplot(data = df_temp24122019, aes(x = NN_HORA, y = TEMPERATURA_DO_AR_C)) + geom_point() + geom_line(color = "#FC4E07", size = 1)
 rm(df_temp24122019)
 
-# Gráfico de umidade relativa 24/12/2019
+# Grï¿½fico de umidade relativa 24/12/2019
 df_umidade24122019 <- subset(dados_clima, (DT_DATA >= as.Date("2019-12-24")) & (DT_DATA <= as.Date("2019-12-24")))
 ggplot(data = df_umidade24122019, aes(x = NN_HORA, y = UMIDADE_RELATIVA_DO_AR))  + geom_point()  + geom_line(color = "#FC4E07", size = 1)
 rm(df_umidade24122019)
 
-#Correlação umidade relativa x temperatura 24/12/2020
+#Correlaï¿½ï¿½o umidade relativa x temperatura 24/12/2020
 df_24122020 <- subset(dados_clima, (DT_DATA >= as.Date("2020-12-24")) &(DT_DATA <= as.Date("2020-12-24")))
 ggplot(data = df_24122020, aes(x = UMIDADE_RELATIVA_DO_AR, y = TEMPERATURA_DO_AR_C)) + geom_point() + geom_line(color = "#FC4E07", size = 1)
 rm(df_24122020)
 
-# Histograma da variável temperatura
+# Histograma da variï¿½vel temperatura
 hist(dados_clima$TEMPERATURA_DO_AR_C)
 
 #Outliers de temperatura
@@ -468,13 +468,13 @@ boxplot(dados_clima2$TEMPERATURA_DO_AR_C, main="Outliers de Temperatura do Ar")
 #Outliers de Umidade relativa do ar
 boxplot(dados_clima2$UMIDADE_RELATIVA_DO_AR, main="Outliers de Umidade relativa")
 
-#Relação entre temperatura x umdiade relativa
-plot(y=dados_clima2$TEMPERATURA_DO_AR_C, x = dados_clima2$UMIDADE_RELATIVA_DO_AR, main = 'Relação entre a Temperatura x Umidade Relativa')
+#Relaï¿½ï¿½o entre temperatura x umdiade relativa
+plot(y=dados_clima2$TEMPERATURA_DO_AR_C, x = dados_clima2$UMIDADE_RELATIVA_DO_AR, main = 'Relaï¿½ï¿½o entre a Temperatura x Umidade Relativa')
 
 rm(dados_clima2)
 
 #------------------------------------------------------------
-#-> fazer um levantamento em cada variável para identificar até quando tem dados ausentes e qual a frequencia.
+#-> fazer um levantamento em cada variï¿½vel para identificar atï¿½ quando tem dados ausentes e qual a frequencia.
 
 
 dados_clima$NN_ANO <- substr(dados_clima$DATA,7,10)
@@ -485,37 +485,37 @@ dados_clima$NN_MES <- substr(dados_clima$DATA,4,5)
 #View(dados_clima)
 
 df_dados_aus <-sqldf::sqldf('select count(*) TOTAL,  NN_ANO from dados_clima where TEMPERATURA_DO_AR_C < -100 group by NN_ANO')
-# dados inválidos de temperatura por ano
+# dados invï¿½lidos de temperatura por ano
 ggplot(df_dados_aus, aes(x=NN_ANO, y=TOTAL, fill=NN_ANO))+ 
   geom_bar(stat = "identity", color ="black", fill="red", width=0.30) +
-  ggtitle("Quantidade de dados inválidos por ano") +
+  ggtitle("Quantidade de dados invï¿½lidos por ano") +
   xlab("Ano") + ylab("Qtd de erros")
 rm(df_dados_aus)
 
-# dados inválidos por variável e ano
-df_erros_ano <-sqldf::sqldf("select sum(CASE WHEN VELOCIDADE_VENTO < -100 THEN 1 ELSE 0 end)'Velocidade vento',sum(CASE WHEN PRESSAO_ATMOSFERICA < -100 THEN 1 ELSE 0 end)'Pressão atmosférica', sum(CASE WHEN PRECIPITACAO < -100 THEN 1 ELSE 0 end)'Precipitação', NN_ANO, sum(CASE WHEN TEMPERATURA_DO_AR_C < -100 THEN 1 ELSE 0 end)'Temperatura',sum(CASE WHEN UMIDADE_RELATIVA_DO_AR < -100 THEN 1 ELSE 0 end)'Umidade relativa'   from dados_clima  where NN_ANO > 2016 group by NN_ANO")
+# dados invï¿½lidos por variï¿½vel e ano
+df_erros_ano <-sqldf::sqldf("select sum(CASE WHEN VELOCIDADE_VENTO < -100 THEN 1 ELSE 0 end)'Velocidade vento',sum(CASE WHEN PRESSAO_ATMOSFERICA < -100 THEN 1 ELSE 0 end)'Pressï¿½o atmosfï¿½rica', sum(CASE WHEN PRECIPITACAO < -100 THEN 1 ELSE 0 end)'Precipitaï¿½ï¿½o', NN_ANO, sum(CASE WHEN TEMPERATURA_DO_AR_C < -100 THEN 1 ELSE 0 end)'Temperatura',sum(CASE WHEN UMIDADE_RELATIVA_DO_AR < -100 THEN 1 ELSE 0 end)'Umidade relativa'   from dados_clima  where NN_ANO > 2016 group by NN_ANO")
 df_erros_ano.long<-melt(df_erros_ano,id.vars="NN_ANO") # formatar para long
 ggplot(df_erros_ano.long,aes(x=NN_ANO,y=value,fill=factor(variable)))+
   geom_bar(stat="identity",position="dodge")+
-  scale_fill_discrete(name="Variável")+
+  scale_fill_discrete(name="Variï¿½vel")+
   ylab("Quantidade de erros")+xlab('Ano')+
   theme(plot.title = element_text(hjust = 0.5))+
-  ggtitle('Dados metereológicos inválidos por ano')+
+  ggtitle('Dados metereolï¿½gicos invï¿½lidos por ano')+
   geom_text(aes(label=value), position=position_dodge(width=0.9), vjust=-0.25, size=1.5)
 rm(df_erros_ano.long)
 rm(df_erros_ano)
 
 
 
-# dados metereológicos por variável e ano
-df_erros_ano <-sqldf::sqldf("select sum(1)'Velocidade vento',sum(1)'Pressão atmosférica', sum(1)'Precipitação', NN_ANO, sum(1)'Temperatura',sum(1)'Umidade relativa'   from dados_clima  where NN_ANO > 2016 group by NN_ANO")
+# dados metereolï¿½gicos por variï¿½vel e ano
+df_erros_ano <-sqldf::sqldf("select sum(1)'Velocidade vento',sum(1)'Pressï¿½o atmosfï¿½rica', sum(1)'Precipitaï¿½ï¿½o', NN_ANO, sum(1)'Temperatura',sum(1)'Umidade relativa'   from dados_clima  where NN_ANO > 2016 group by NN_ANO")
 df_erros_ano.long<-melt(df_erros_ano,id.vars="NN_ANO") # formatar para long
 ggplot(df_erros_ano.long,aes(x=NN_ANO,y=value,fill=factor(variable)))+
   geom_bar(stat="identity",position="dodge")+
-  scale_fill_discrete(name="Variável")+
+  scale_fill_discrete(name="Variï¿½vel")+
   ylab("Quantidade de entradas")+xlab('Ano')+
   theme(plot.title = element_text(hjust = 0.5))+
-  ggtitle('Dados metereológicos por ano')+
+  ggtitle('Dados metereolï¿½gicos por ano')+
   geom_text(aes(label=value), position=position_dodge(width=0.9), vjust=-0.25, size=1.5)
 rm(df_erros_ano.long)
 rm(df_erros_ano)
@@ -526,24 +526,24 @@ rm(df_erros_ano)
 datasetest1 <- subset(dados_clima, DT_DATA >= dmy('01-01-2017'))
 head(datasetest1)
 
-#repete o gráfico sem os dados de 2016
-# dados inválidos por variável e ano
-df_erros_ano <-sqldf::sqldf("select sum(CASE WHEN VELOCIDADE_VENTO < -100 THEN 1 ELSE 0 end)'Velocidade vento',sum(CASE WHEN PRESSAO_ATMOSFERICA < -100 THEN 1 ELSE 0 end)'Pressão atmosférica', sum(CASE WHEN PRECIPITACAO < -100 THEN 1 ELSE 0 end)'Precipitação', NN_ANO, sum(CASE WHEN TEMPERATURA_DO_AR_C < -100 THEN 1 ELSE 0 end)'Temperatura',sum(CASE WHEN UMIDADE_RELATIVA_DO_AR < -100 THEN 1 ELSE 0 end)'Umidade relativa'   from datasetest1  group by NN_ANO")
+#repete o grï¿½fico sem os dados de 2016
+# dados invï¿½lidos por variï¿½vel e ano
+df_erros_ano <-sqldf::sqldf("select sum(CASE WHEN VELOCIDADE_VENTO < -100 THEN 1 ELSE 0 end)'Velocidade vento',sum(CASE WHEN PRESSAO_ATMOSFERICA < -100 THEN 1 ELSE 0 end)'Pressï¿½o atmosfï¿½rica', sum(CASE WHEN PRECIPITACAO < -100 THEN 1 ELSE 0 end)'Precipitaï¿½ï¿½o', NN_ANO, sum(CASE WHEN TEMPERATURA_DO_AR_C < -100 THEN 1 ELSE 0 end)'Temperatura',sum(CASE WHEN UMIDADE_RELATIVA_DO_AR < -100 THEN 1 ELSE 0 end)'Umidade relativa'   from datasetest1  group by NN_ANO")
 
 df_erros_ano.long<-melt(df_erros_ano,id.vars="NN_ANO") # formatar para long
 ggplot(df_erros_ano.long,aes(x=NN_ANO,y=value,fill=factor(variable)))+
   geom_bar(stat="identity",position="dodge")+
-  scale_fill_discrete(name="Variável")+
+  scale_fill_discrete(name="Variï¿½vel")+
   ylab("Quantidade de erros")+xlab('Ano')+
   theme(plot.title = element_text(hjust = 0.5))+
-  ggtitle('Dados inválidos por ano')+
+  ggtitle('Dados invï¿½lidos por ano')+
   geom_text(aes(label=value), position=position_dodge(width=0.9), vjust=-0.25, size=1.5)
 
 rm(df_erros_ano.long)
 rm(df_erros_ano)
 
 # novo dataset - consulta de dados ausentes dsest1
-#substitui todos os dados ausentes pela média das 24h
+#substitui todos os dados ausentes pela mï¿½dia das 24h
 
 ds_clima_tratado <-replace.mprox(datasetest1)
 
@@ -552,14 +552,14 @@ rm(datasetest1)
 
 summary(ds_clima_tratado)
 
-df_erros_ano <-sqldf::sqldf("select sum(CASE WHEN VELOCIDADE_VENTO < -100 THEN 1 ELSE 0 end)'Velocidade vento',sum(CASE WHEN PRESSAO_ATMOSFERICA < -100 THEN 1 ELSE 0 end)'Pressão atmosférica', sum(CASE WHEN PRECIPITACAO < -100 THEN 1 ELSE 0 end)'Precipitação', NN_ANO, sum(CASE WHEN TEMPERATURA_DO_AR_C < -100 THEN 1 ELSE 0 end)'Temperatura',sum(CASE WHEN UMIDADE_RELATIVA_DO_AR < -100 THEN 1 ELSE 0 end)'Umidade relativa'   from ds_clima_tratado  group by NN_ANO")
+df_erros_ano <-sqldf::sqldf("select sum(CASE WHEN VELOCIDADE_VENTO < -100 THEN 1 ELSE 0 end)'Velocidade vento',sum(CASE WHEN PRESSAO_ATMOSFERICA < -100 THEN 1 ELSE 0 end)'Pressï¿½o atmosfï¿½rica', sum(CASE WHEN PRECIPITACAO < -100 THEN 1 ELSE 0 end)'Precipitaï¿½ï¿½o', NN_ANO, sum(CASE WHEN TEMPERATURA_DO_AR_C < -100 THEN 1 ELSE 0 end)'Temperatura',sum(CASE WHEN UMIDADE_RELATIVA_DO_AR < -100 THEN 1 ELSE 0 end)'Umidade relativa'   from ds_clima_tratado  group by NN_ANO")
 df_erros_ano.long<-melt(df_erros_ano,id.vars="NN_ANO") # formatar para long
 ggplot(df_erros_ano.long,aes(x=NN_ANO,y=value,fill=factor(variable)))+
   geom_bar(stat="identity",position="dodge")+
-  scale_fill_discrete(name="Variável")+
+  scale_fill_discrete(name="Variï¿½vel")+
   ylab("Quantidade de erros")+xlab('Ano')+
   theme(plot.title = element_text(hjust = 0.5))+
-  ggtitle('Dados inválidos por ano')+
+  ggtitle('Dados invï¿½lidos por ano')+
   geom_text(aes(label=value), position=position_dodge(width=0.9), vjust=-0.25, size=1.5)
 
 rm(df_erros_ano.long)
@@ -571,7 +571,7 @@ write.csv2(ds_clima_tratado,f_out, col.names=TRUE, sep=';',qmethod="double")
 count.nas(ds_clima_tratado)
 count.nas(ds_dados_c)
 
-#Merge dos dados metereológicos e de consumo
+#Merge dos dados metereolï¿½gicos e de consumo
 
 ds_clima_tratado$DT_MEDICAO_HORA <- as_datetime(parse_date_time(paste(paste(ds_clima_tratado$DT_DATA,"-",sep=""),ds_clima_tratado$HORA,sep=""), "%y-%m-%d-%H:%M"))
 
@@ -597,7 +597,7 @@ head(ds_data)
 
 
 #salva dados tratado em arquivo
-f_out <- 'C:/Users/Edmilson/Downloads/mestrado/waterdemand/data2/DS_Agua_2017_2022_por_ponto.csv'
+f_out <- 'C:/Users/Edmilson/Downloads/mestrado/waterdemand/data/DS_Agua_2017_2022_por_ponto.csv'
 write.csv2(ds_data,f_out, sep = ';')
 write.table(ds_data,f_out,sep = ';', dec = '.')
 
@@ -608,7 +608,7 @@ write.table(ds_data,f_out,sep = ';', dec = '.')
 
 
 View(ds_data)
-#Merge dos dados metereológicos e de consumo unificado
+#Merge dos dados metereolï¿½gicos e de consumo unificado
 
 ds_dados_c <- read.csv2('C:/Users/Edmilson/Downloads/mestrado/waterdemand/data2/DADOS_CONSUMO_2017_a_2022_tratado_unificado.csv', sep=';')
 #join clima x consumo pela DT_MEDICAO_HORA

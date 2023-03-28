@@ -76,13 +76,9 @@ ds_R9 <- read.csv(paste(caminho,"resultado_LSTM_R9.csv", sep=""), header = TRUE,
 par(mfrow=c(1,1))
 #ggplot(data = ds_skp13, aes(x = DT_MEDICAO_HORA, y = VL_MEDICAO)) + geom_point() 
 
-t <- ggplot(data = ds_R9, aes(x = Data, y = Test)) + geom_point(size = 0.2) +
-  geom_line(color = "black", size = 0.2)  + labs(x = "Time in hours", y = "Consumption l/h", )
-
-p <- ggplot(data = ds_R9, aes(x = Data, y = Predict) + geom_point(size = 0.2) +
-  geom_line(color = "blue", size = 0.2)  + labs(x = "Time in hours", y = "Consumption l/h", )
-
-ggplot(rbind(t,p)) 
+ggplot(data = ds_R9, aes(x = Data)) + labs(x = "Time in hours", y = "Consumption l/h", )+
+  geom_line(aes(y = Test, col="Test"))  + 
+  geom_line(aes(y = Predict, col="Predict")) +labs(colour = "")
 
 
 ggsave(file = "C:\\Users\\Edmilson\\Downloads\\mestrado\\Orientacao\\artigo02\\submission\\Fig6.eps")
