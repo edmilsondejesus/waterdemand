@@ -1,0 +1,1 @@
+A folder called "data" must be created and the data files for testing and training must be added to it. Scrambled data can generate different results than expected, especially considering that these are time series where there is a dependence on time!
